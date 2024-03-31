@@ -11,7 +11,7 @@ jobs:
 
     services:
       mysql:
-        image: mysql:latest
+        image: najaboughader/mysql:latest
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: mydatabase
