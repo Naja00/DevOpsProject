@@ -3,8 +3,8 @@ FROM phpmyadmin/phpmyadmin:latest
 
 # Set environment variables for MySQL connection
 ENV PMA_HOST=mysql
-ENV PMA_USER=wissam
-ENV PMA_PASSWORD=hassan
+ENV PMA_USER=naja
+ENV PMA_PASSWORD=boughader
 
 # The port phpMyAdmin will run on
 EXPOSE 80
