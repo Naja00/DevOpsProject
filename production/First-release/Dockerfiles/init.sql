@@ -1,4 +1,4 @@
-USE mydatabasewissam;
+USE UserPass;
 
 -- Create login table
 CREATE TABLE login (
