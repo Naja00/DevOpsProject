@@ -1,0 +1,50 @@
+name: Build, Push, and Deploy Docker Images
+
+on:
+  push:
+    branches:
+      - Production
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: najaboughader/mysql:latest
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: mydatabase
+          MYSQL_USER: myuser
+          MYSQL_PASSWORD: mypassword
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set version as an environment variable
+      run: echo "VERSION=3.0.${{ github.run_number }}" >> $GITHUB_ENV
+
+    - name: Build App Docker image
+      run: docker build -t najaboughader/web:${{ github.run_number }} -f First-release/Dockerfiles/Dockerfile .
+
+    - name: Build Database Docker image
+      run: docker build -t najaboughader/mysql:${{ github.run_number }} -f First-release/Dockerfiles/Dockerfile.database .
+
+    - name: Build phpMyAdmin Docker image
+      run: docker build -t najaboughader/php:${{ github.run_number }} -f First-release/Dockerfiles/Dockerfile.phpmyadmin .
+
+    - name: Log in to Docker Hub
+      run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+    - name: Push App Docker image
+      run: docker push najaboughader/web:${{ github.run_number }}
+
+    - name: Push Database Docker image
+      run: docker push najaboughader/mysql:${{ github.run_number }}
+
+    - name: Push phpMyAdmin Docker image
+      run: docker push najaboughader/php:${{ github.run_number }}
