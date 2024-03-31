@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Importing the Poppins font from Google Fonts -->
+    <style>
+      /* Resetting default styles for consistency */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+
+      /* Global styles for consistent layout and font */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Poppins", sans-serif;
+      }
+
+      /* Setting the background color for the entire page */
+      body {
+          background-color: #ffffff;
+          margin: 0; /* Reset default margin */
+      }
+
+      /* Styling individual sections on the page */
+      section {
+          padding-left: 5px;
+          padding-right: 5px;
+      }
+
+      /* Creating a stacking context for the content */
+      .content {
+          position: relative;
+          z-index: 1;
+      }
+
+      /* Styling the navigation bar */
+      .navbar {
+          background: #333;
+          color: #fff;
+          padding: 15px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 0;
+          position: fixed; /* Make the navbar fixed */
+          width: 100%; /* Set full width */
+          z-index: 1000; /* Set a high z-index to ensure it's above other elements */
+          top: 0; /* Position at the top of the viewport */
+      }
+
+      /* Styling navigation links */
+      .navbar a {
+          color: #fff;
+          text-decoration: none;
+          margin: 0 15px;
+      }
+
+      /* Adjusting the logo size in the navigation bar */
+      .navbar img {
+          height: 30px;
+      }
+
+      /* Styling for the video container */
+      .video-container {
+          position: relative;
+          width: 99vw;
+          height: 50vw;
+          overflow: hidden;
+          padding-bottom: 30px;
+
+      }
+
+      /* Styling for the video background within the container */
+      #video-bg {
+          object-position: center;
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+      }
+
+      .overlay-text {
+          position: absolute;
+          bottom: 9vw; /* Adjust the distance from the bottom */
+          left: 5vw; /* Adjust the distance from the left */
+          text-align: left; /* Align text to the left */
+          color: #FFFFFF; /* Text color */
+          font-size: 24px; /* Adjust the font size as needed */
+      }
+
+      .overlay-text .btn {
+          display: inline-block;
+          color: #fff;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 1.5;
+          text-align: center;
+          text-decoration: none;
+          vertical-align: middle;
+          cursor: pointer;
+          user-select: none;
+          border: 2px solid #FFFFFF; /* White border */
+          padding: 10px 20px; /* Adjust padding as needed */
+          margin-top: 15px;
+          border-radius: 30px; /* Rounded corners */
+          transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      }
+
+      .btn:hover {
+          background-color: #FFFFFF; /* White background on hover */
+          color: #000000; /* Text color on hover */
+          border-color: #FFFFFF; /* Border color on hover */
+      }
+
+      /* Styling for the card content section */
+      .card-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          padding: 20px; /* Add padding for better spacing */
+      }
+
+      /* Styling for the text column within a card */
+      .text-column {
+          background-color: rgba(255, 254, 254, 0.685);
+          padding: 5px;
+          flex: 1;
+          max-width: 60%;
+          margin-right: 20px;
+      }
+
+      /* Styling for the image column within a card */
+      .image-column {
+          flex: 1;
+          max-width: 40%;
+      }
+
+      /* Styling for images within the image column */
+      .image-column img {
+          width: 100%;
+          max-height: 100%;
+          object-fit: cover;
+          border-radius: 5px;
+      }
+
+      /* Styling for the TradingView ticker tape widget */
+      #tradingview-widget-ticker-tape {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: 50px;
+          background-color: #333; /* Set background color as needed */
+          z-index: 1; /* Set z-index to ensure it's above other elements */
+      }
+
+      /* Styling the iframe within the TradingView widget */
+      #tradingview-widget-ticker-tape iframe {
+          width: 100%;
+          height: 100%;
+          border: none; /* Remove iframe border */
+      }
+
+      /* Media query for responsiveness on smaller screens */
+      @media screen and (max-width: 768px) {
+          .card-content {
+              flex-direction: column;
+              align-items: center;
+          }
+
+          .text-column,
+          .image-column {
+              max-width: 100%;
+              margin-right: 0;
+          }
+      }
+/* Styling for the What We Offer section */
+.offer-section {
+    padding: 40px;
+    background-color: #f8f8f8; /* Set background color as needed */
+    text-align: center; /* Center text within the section */
+}
+
+/* Container for offer cards - display them beside each other */
+.offer-cards-container {
+    display: flex;
+    justify-content: space-around; /* Adjust spacing between cards */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line on smaller screens */
+}
+
+/* Styling for individual offer cards */
+.offer-card {
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect on hover */
+}
+
+.offer-card:hover {
+    transform: scale(1.05); /* Enlarge the card slightly on hover */
+}
+
+.offer-card img {
+    max-width: 100%;
+    height: 160px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.offer-card h3 {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.offer-card p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InfiniteInsight TradeSchool | Home </title>
+    <link rel="icon" href="media/favicon-32x32.png" type="image/png" sizes="32x32" />
+</head>
+<script src="https://code.tidio.co/sdgajjhnvt5rtgsyiki4gnpwftzvpd9d.js" async></script>
+<body>
+<div>
+  <div class="navbar">
+    <a href="index.html"><img src="media/logo.jpg" alt="Logo"></a>
+    <a href="index.html">Home</a>
+    <a href="index.html#Services">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="login.php">Login</a>
+  </div>
+</div>
+    <!-- Section for the TradingView ticker tape widget -->
+    <section>
+        <div id="tradingview-widget-ticker-tape">
+            <!-- TradingView widget for real-time price -->
+            <div style="width: 100%; height: 50px">
+                <iframe
+                    scrolling="no"
+                    allowtransparency="true"
+                    frameborder="0"
+                    src="https://www.tradingview-widget.com/embed-widget/ticker-tape/?locale=en#%7B%22symbols%22%3A%5B%7B%22description%22%3A%22AUDCAD%22%2C%22proName%22%3A%22EIGHTCAP%3AAUDCAD%22%7D%2C%7B%22description%22%3A%22AUDCHF%22%2C%22proName%22%3A%22EIGHTCAP%3AAUDCHF%22%7D%2C%7B%22description%22%3A%22AUDJPY%22%2C%22proName%22%3A%22EIGHTCAP%3AAUDJPY%22%7D%2C%7B%22description%22%3A%22AUDNZD%22%2C%22proName%22%3A%22EIGHTCAP%3AAUDNZD%22%7D%2C%7B%22description%22%3A%22AUDSGD%22%2C%22proName%22%3A%22EIGHTCAP%3AAUDSGD%22%7D%2C%7B%22description%22%3A%22AUDUSD%22%2C%22proName%22%3A%22EIGHTCAP%3AAUDUSD%22%7D%2C%7B%22description%22%3A%22CADCHF%22%2C%22proName%22%3A%22EIGHTCAP%3ACADCHF%22%7D%2C%7B%22description%22%3A%22EURAUD%22%2C%22proName%22%3A%22EIGHTCAP%3AEURAUD%22%7D%2C%7B%22description%22%3A%22EURCAD%22%2C%22proName%22%3A%22EIGHTCAP%3AEURCAD%22%7D%2C%7B%22description%22%3A%22EURCHF%22%2C%22proName%22%3A%22FOREXCOM%3AEURCHF%22%7D%2C%7B%22description%22%3A%22EURDKK%22%2C%22proName%22%3A%22FOREXCOM%3AEURDKK%22%7D%2C%7B%22description%22%3A%22EURGBP%22%2C%22proName%22%3A%22EIGHTCAP%3AEURGBP%22%7D%2C%7B%22description%22%3A%22EURHKD%22%2C%22proName%22%3A%22FOREXCOM%3AEURHKD%22%7D%2C%7B%22description%22%3A%22EURJPY%22%2C%22proName%22%3A%22EIGHTCAP%3AEURJPY%22%7D%2C%7B%22description%22%3A%22EURNZD%22%2C%22proName%22%3A%22EIGHTCAP%3AEURNZD%22%7D%2C%7B%22description%22%3A%22EURPLN%22%2C%22proName%22%3A%22EIGHTCAP%3AEURPLN%22%7D%2C%7B%22description%22%3A%22EURTRY%22%2C%22proName%22%3A%22EIGHTCAP%3AEURTRY%22%7D%2C%7B%22description%22%3A%22EURUSD%22%2C%22proName%22%3A%22EIGHTCAP%3AEURUSD%22%7D%2C%7B%22description%22%3A%22GBPAUD%22%2C%22proName%22%3A%22EIGHTCAP%3AGBPAUD%22%7D%2C%7B%22description%22%3A%22GBPCAD%22%2C%22proName%22%3A%22EIGHTCAP%3AGBPCAD%22%7D%2C%7B%22description%22%3A%22GBPCHF%22%2C%22proName%22%3A%22EIGHTCAP%3AGBPCHF%22%7D%2C%7B%22description%22%3A%22GBPJPY%22%2C%22proName%22%3A%22EIGHTCAP%3AGBPJPY%22%7D%2C%7B%22description%22%3A%22GBPNZD%22%2C%22proName%22%3A%22EIGHTCAP%3AGBPNZD%22%7D%2C%7B%22description%22%3A%22GBPUSD%22%2C%22proName%22%3A%22EIGHTCAP%3AGBPUSD%22%7D%2C%7B%22description%22%3A%22NZDCAD%22%2C%22proName%22%3A%22EIGHTCAP%3ANZDCAD%22%7D%2C%7B%22description%22%3A%22NZDCHF%22%2C%22proName%22%3A%22EIGHTCAP%3ANZDCHF%22%7D%2C%7B%22description%22%3A%22NZDJPY%22%2C%22proName%22%3A%22EIGHTCAP%3ANZDJPY%22%7D%2C%7B%22description%22%3A%22NZDUSD%22%2C%22proName%22%3A%22EIGHTCAP%3ANZDUSD%22%7D%2C%7B%22description%22%3A%22SGDJPY%22%2C%22proName%22%3A%22EIGHTCAP%3ASGDJPY%22%7D%2C%7B%22description%22%3A%22USDCAD%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDCAD%22%7D%2C%7B%22description%22%3A%22USDCHF%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDCHF%22%7D%2C%7B%22description%22%3A%22USDDKK%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDDKK%22%7D%2C%7B%22description%22%3A%22USDHUF%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDHUF%22%7D%2C%7B%22description%22%3A%22USDJPY%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDJPY%22%7D%2C%7B%22description%22%3A%22USDMXN%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDMXN%22%7D%2C%7B%22description%22%3A%22USDNOK%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDNOK%22%7D%2C%7B%22description%22%3A%22USDPLN%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDPLN%22%7D%2C%7B%22description%22%3A%22USDSEK%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDSEK%22%7D%2C%7B%22description%22%3A%22USDSGD%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDSGD%22%7D%2C%7B%22description%22%3A%22USDTHB%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDTHB%22%7D%2C%7B%22description%22%3A%22USDTRY%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDTRY%22%7D%2C%7B%22description%22%3A%22USDZAR%22%2C%22proName%22%3A%22EIGHTCAP%3AUSDZAR%22%7D%2C%7B%22description%22%3A%22EURHUF%22%2C%22proName%22%3A%22EIGHTCAP%3AEURHUF%22%7D%2C%7B%22description%22%3A%22EURNOK%22%2C%22proName%22%3A%22EIGHTCAP%3AEURNOK%22%7D%2C%7B%22description%22%3A%22CADJPY%22%2C%22proName%22%3A%22EIGHTCAP%3ACADJPY%22%7D%2C%7B%22description%22%3A%22FRA40%22%2C%22proName%22%3A%22EIGHTCAP%3AFRA40%22%7D%2C%7B%22description%22%3A%22EUSTX50%22%2C%22proName%22%3A%22EIGHTCAP%3AEUSTX50%22%7D%2C%7B%22description%22%3A%22JPN225%22%2C%22proName%22%3A%22EIGHTCAP%3AJPN225%22%7D%2C%7B%22description%22%3A%22SPX500%22%2C%22proName%22%3A%22EIGHTCAP%3ASPX500%22%7D%2C%7B%22description%22%3A%22UK100%22%2C%22proName%22%3A%22EIGHTCAP%3AUK100%22%7D%2C%7B%22description%22%3A%22US2000%22%2C%22proName%22%3A%22EIGHTCAP%3AUS2000%22%7D%2C%7B%22description%22%3A%22VIX%22%2C%22proName%22%3A%22EIGHTCAP%3AVIX%22%7D%2C%7B%22description%22%3A%22XAUUSD%22%2C%22proName%22%3A%22EIGHTCAP%3AXAUUSD%22%7D%2C%7B%22description%22%3A%22XAGUSD%22%2C%22proName%22%3A%22EIGHTCAP%3AXAGUSD%22%7D%2C%7B%22description%22%3A%22GER30%22%2C%22proName%22%3A%22EIGHTCAP%3AGER30%22%7D%2C%7B%22description%22%3A%22HK50%22%2C%22proName%22%3A%22EIGHTCAP%3AHK50%22%7D%2C%7B%22description%22%3A%22US30%22%2C%22proName%22%3A%22EIGHTCAP%3AUS30%22%7D%2C%7B%22description%22%3A%22USOUSD%22%2C%22proName%22%3A%22EIGHTCAP%3AUSOUSD%22%7D%5D%2C%22showSymbolLogo%22%3Atrue%2C%22colorTheme%22%3A%22light%22%2C%22isTransparent%22%3Afalse%2C%22displayMode%22%3A%22adaptive%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22fundednext.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22fundednext.com%2F%22%7D"
+  title="ticker tape TradingView widget"
+  lang="en"
+  style="
+    user-select: none;
+    box-sizing: border-box;
+    display: block;
+    height: 50px;
+    width: 100%;
+  "
+  >
+  </iframe>
+</div>
+</section>
+<section style="padding-left: 0px;padding-right: 0px;"> <!-- Start a new section for video background -->
+  <div class="video-container">
+    <!-- Video Background -->
+    <video autoplay muted loop id="video-bg">
+      <source src="media/Online Trading Video Opener - After Effects Template.mp4" type="video/mp4"/>
+      Your browser does not support the video tag.
+    </video>
+    <!-- Overlay Text on Video -->
+    <div class="overlay-text">
+      <strong>InfiniteInsight TradeSchool</strong>
+      <p>Unleash the Power of Trading</p>
+      <div class="mbr-section-btn">
+        <a class="btn btn-white-outline display-7" href="login.php">Start Trading</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section> <!-- Start a new section for card content -->
+  <div class="card-content">
+    <!-- Text and Image Columns -->
+    <div class="text-column">
+      <!-- Heading -->
+      <h2>What is Finance?</h2>
+      <br><br>
+      <!-- Description -->
+      <h3>1- Strategic Wealth Creation:</h3>
+          <p>
+            Finance is your toolkit for strategic wealth creation. Learn how to
+            navigate market fluctuations and turn volatility into your
+            advantage.
+          </p>
+          <br>
+          <h3>2- Risk Management Mastery:</h3>
+          <p>
+            Master the art of risk management. Finance is your shield against
+            unexpected market turns, ensuring you stay in control of your
+            trades.
+          </p>
+          <br>
+          <h3>3- Market Insights and Trends:</h3>
+          <p>
+            Finance unveils the secrets behind market trends. Stay ahead with
+            comprehensive insights, spot opportunities, and make informed
+            trading decisions.
+          </p>
+          <br>
+          <h3>4- Community of Like-Minded Traders:</h3>
+          <p>
+            Join a vibrant community of like-minded traders. Share strategies,
+            discuss market analyses, and grow together in a supportive
+            environment.
+          </p>
+    </div>
+    <div class="image-column">
+      <!-- Image -->
+      <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/339166349/original/2351baec73ba9df74eb3fba70ccb17da3b8698a5/be-your-high-profitable-forex-trading-bot-forex-account-management-on-mt4-mt5.jpeg" alt="InfiniteInsight TradeSchool Profit History Image">
+    </div>
+  </div>
+</section>
+<section> <!-- New section for What We Offer -->
+  <div class="offer-section" id="Services">
+    <h2>What We Offer</h2>
+    <br>
+    <div class="offer-cards-container">
+    <div class="offer-card">
+      <img src="https://i0.wp.com/traders.mba/wp-content/uploads/2024/01/nai0yasr3cypypcf.jpg?fit=1024%2C585&ssl=1" alt="Education Image">
+      <h3>Comprehensive Education</h3>
+      <p>Access a wide range of courses covering trading fundamentals to advanced strategies. Learn at your own pace.</p>
+    </div>
+    
+    <div class="offer-card">
+      <img src="data:image/jpeg;base64,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" alt="Community Image">
+      <h3>Supportive Community</h3>
+      <p>Connect with a community of like-minded traders. Share insights, strategies, and grow together in a supportive environment.</p>
+    </div>
+    
+    <div class="offer-card">
+      <img src="https://media.istockphoto.com/id/1312768788/photo/businessman-holding-creative-light-bulb-with-growth-graph-and-banking-icons-financial.jpg?s=612x612&w=0&k=20&c=jgWFF-0LLKXuUuG0io3ujzZVDEvh8okPyVfQ-jUs7po=" alt="Market Analysis Image">
+      <h3>Market Insights</h3>
+      <p>Stay informed with market trends and analyses. Gain valuable insights to make informed trading decisions.</p>
+    </div>
+    
+    
+    <div class="offer-card">
+      <img src="https://blog.cleo.one/wp-content/uploads/2021/05/MicrosoftTeams-image-27-scaled.jpg" alt="Risk Management Image">
+      <h3>Risk Management Mastery</h3>
+      <p>Master the art of risk management to navigate market uncertainties effectively and stay in control of your trades.</p>
+    </div>
+  </div>
+  </div>
+</section>
+</body>
+</html>

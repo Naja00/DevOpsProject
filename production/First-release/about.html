@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- External font import -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* About Us section styling */
+      .about-us {
+        height: 100vh;
+        width: 100%;
+        padding: 90px 0;
+        background: url("https://img.freepik.com/free-photo/business-person-futuristic-business-environment_23-2150970201.jpg?t=st=1708012636~exp=1708016236~hmac=e4e04bb794e07e80277ad73d1a8a00bc2065bdafdf111acf17da3dec33bbd98e&w=996");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      /* Image styling */
+      .pic {
+        height: auto;
+        width: 302px;
+      }
+
+      /* Container for the About Us content */
+      .about {
+        width: 1000px;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: rgb(255, 255, 255, 0.9);
+        padding-bottom: 20px;
+        margin-top: 3vh;
+      }
+
+      /* Text section styling */
+      .text {
+        width: 700px;
+      }
+
+      /* Heading 2 styling */
+      .text h2 {
+        font-size: 90px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      /* Heading 5 styling */
+      .text h5 {
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+
+      /* Styling for the span within h5 */
+      span {
+        color: orange;
+      }
+
+      /* Paragraph styling */
+      .text p {
+        font-size: 18px;
+        line-height: 25px;
+        letter-spacing: 1px;
+      }
+
+      /* Margin for the data section */
+      .data {
+        margin-top: 10px;
+      }
+
+      /* Styling for the "Hire Me" button */
+      .hire {
+        font-size: 18px;
+        background: orange;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        padding: 8px 25px;
+        border-radius: 6px;
+        transition: 0.5s;
+        margin-top: 5px;
+      }
+
+      /* Hover effect for the button */
+      .hire:hover {
+        background: black;
+        border: 1px solid black;
+      }
+
+      /* Styling for the navigation bar */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #333;
+        color: #fff;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Styling for navigation links */
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+      }
+
+      /* Logo styling */
+      .navbar img {
+        height: 30px; /* Adjust the height as needed */
+      }
+
+      /* Media query for smaller screens */
+      @media screen and (max-width: 768px) {
+        .about {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .text {
+          width: 100%;
+          max-width: 540px;
+          margin: 0 auto;
+        }
+
+        .pic {
+          width: 100%;
+          height: auto;
+        }
+      }
+    </style>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Title of the page -->
+    <title>InfiniteInsight TradeSchool | About Us</title>
+    <link rel="icon" href="media/favicon-32x32.png" type="image/png" sizes="32x32" />
+  </head>
+  <!-- Body of the HTML document -->
+  <body>
+    <!-- Navigation bar section -->
+    <div class="navbar">
+      <a href="index.html"><img src="media/logo.jpg" alt="Logo"></a>
+      <a href="index.html">Home</a>
+      <a href="index.html#Services">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact-us.html">Contact Us</a>
+      <a href="login.php">Login</a>
+    </div>
+
+    <!-- About Us section -->
+    <section class="about-us">
+      <!-- Container for the About Us content -->
+      <div class="about">
+        <!-- Text section within About Us -->
+        <div class="text">
+          <!-- Main heading -->
+          <h2>About Us</h2>
+          <!-- Subheading with a span for styling -->
+          <h5>Trading specialists & <span>Mentors</span></h5>
+          <!-- Paragraph content -->
+          <p>
+            We are a team of experienced trading professionals dedicated to
+            helping individuals achieve success in the financial markets. With
+            years of experience and a passion for teaching, we offer
+            comprehensive mentorship programs, trading strategies, and
+            educational resources to empower traders of all levels.
+          </p>
+          <br>
+          <p>
+            Our mission is to provide traders with the knowledge, tools, and
+            support they need to navigate the complexities of the market and
+            make informed trading decisions. Whether you're a beginner looking
+            to learn the basics or an experienced trader seeking advanced
+            strategies, we're here to help you reach your trading goals.
+          </p>
+          <br>
+          <p>
+            Join us on our journey to financial freedom and take your trading
+            skills to the next level with our expert guidance and mentorship.
+          </p>
+
+          <!-- Data section with a link/button -->
+          <div class="data">
+            <a href="contact-us.html" class="hire">Hire Me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

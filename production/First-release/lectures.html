@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            margin-top: 60px; /* Adjust the margin-top to reduce space between header and main */
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            z-index: 1000;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        main>div {
+            margin-bottom: 50px;
+            /* Add some bottom margin to create space between videos */
+        }
+
+        footer {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            position: fixed;
+            margin-top: 200px;
+        }
+
+        /* Styling for the navigation bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Styling for navigation links */
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        /* Logo styling */
+        .navbar img {
+            height: 30px; /* Adjust the height as needed */
+        }
+
+        .welcome-card {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            justify-content: space-between;
+            text-decoration: none;
+        }
+
+
+        .icon {
+            width: 5vw;
+            height: 5vw;
+            background-color: #fff;
+            border-radius: 50px;
+        }
+        
+    </style>
+    <title>Course Page</title>
+</head>
+
+<body>
+    
+    <header>
+        <section>
+            <!-- Navigation bar section -->
+            <div class="navbar">
+                <a href="index.html"><img src="media/logo.jpg" alt="Logo"></a>
+                <a href="index.html">Home</a>
+                <a href="index.html#Services">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact-us.html">Contact Us</a>
+                <a href="login.php">Logout</a>
+            </div>
+        </section>
+        <div class="welcome-card">
+            <div>
+                <h1>InfiniteInsight TradeSchool</h1>
+                <p>Welcome to the Course!</p>
+            </div>
+            <a href="edit-user.html">
+                <img class="icon" src="media/user_icon.png" alt="User Icon to edit the profile">
+                <p style="color: #fff;">Edit Profile</p>
+            </a>
+            
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <!-- First Lecture -->
+            <h3>Lecture 1: Introduction to Trading</h3>
+            <p>
+                Description: This introductory lecture provides an overview of the fundamentals of trading,
+                covering key concepts and terminology essential for beginners.
+            </p>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/SGSKYQzXdUM?si=xc9SxrqM6WwT7XbL&autoplay=1"
+                title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+        <br>
+        <div>
+            <!-- Second Lecture -->
+            <h3>Lecture 2: Candlestick Patterns</h3>
+            <p>
+                Description: Explore the fascinating world of candlestick patterns in this lecture. Learn to
+                identify and interpret these patterns for effective trading strategies.
+            </p>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/AOz1YPOKvEs?si=LNGl9kz6u_0Kgj1q&autoplay=1"
+                title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+        <br>
+        <!-- Add more lecture entries as needed -->
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Course Title. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

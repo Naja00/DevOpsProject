@@ -1,0 +1,14 @@
+# Use an official MySQL runtime as a parent image
+FROM mysql:latest
+
+# Set the MySQL root password
+ENV MYSQL_ROOT_PASSWORD=root
+
+# Create a database and user
+ENV MYSQL_DATABASE=mydatabasewissam
+ENV MYSQL_USER=wissam
+ENV MYSQL_PASSWORD=hassan
+
+# When container starts, execute the following SQL script
+COPY First-release/Dockerfiles/init.sql /docker-entrypoint-initdb.d/
+
