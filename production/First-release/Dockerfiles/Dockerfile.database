@@ -10,5 +10,5 @@ ENV MYSQL_USER=naja
 ENV MYSQL_PASSWORD=boughader
 
 # When container starts, execute the following SQL script
-COPY First-release/Dockerfiles/init.sql /docker-entrypoint-initdb.d/
+COPY production/First-release/Dockerfiles/init.sql /docker-entrypoint-initdb.d/
 
