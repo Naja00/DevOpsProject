@@ -29,13 +29,13 @@ jobs:
       run: echo "VERSION=3.0.${{ github.run_number }}" >> $GITHUB_ENV
 
     - name: Build App Docker image
-      run: docker build -t najaboughader/web:${{ github.run_number }} -f First-release/Dockerfiles/Dockerfile .
+      run: docker build -t najaboughader/web:${{ github.run_number }} -f production/First-release/Dockerfiles/Dockerfile .
 
     - name: Build Database Docker image
-      run: docker build -t najaboughader/mysql:${{ github.run_number }} -f First-release/Dockerfiles/Dockerfile.database .
+      run: docker build -t najaboughader/mysql:${{ github.run_number }} -f production/First-release/Dockerfiles/Dockerfile.database .
 
     - name: Build phpMyAdmin Docker image
-      run: docker build -t najaboughader/php:${{ github.run_number }} -f First-release/Dockerfiles/Dockerfile.phpmyadmin .
+      run: docker build -t najaboughader/php:${{ github.run_number }} -f production/First-release/Dockerfiles/Dockerfile.phpmyadmin .
 
     - name: Log in to Docker Hub
       run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
