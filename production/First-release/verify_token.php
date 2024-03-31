@@ -5,8 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 // Database configuration
-$servername = "wissamha-db-service";
-$database = "mydatabasewissam";
+$servername = "najaboughader-db-service";
+$database = "UserPass";
 $username = "myuser";
 $password = "mypassword";
 
