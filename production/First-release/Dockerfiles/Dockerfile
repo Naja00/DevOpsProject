@@ -23,7 +23,7 @@ RUN docker-php-ext-install mysqli
 WORKDIR /var/www/html
 
 # Copy HTML and PHP files from the host into the container
-COPY First-release/. .
+COPY production/First-release/. .
 
 # Expose port 80 to the outside world
 EXPOSE 80
